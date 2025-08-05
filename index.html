@@ -1,0 +1,501 @@
+
+Este pedido requer a criação de uma página inicial completa para "Escola Digital" com diversos elementos visuais e funcionais. Vou incluir:
+1. Um cabeçalho com menu de navegação
+2. Seção hero com chamada principal
+3. Seções de recursos/diferenciais
+4. Galeria de imagens
+5. Rodapé com informações de contato
+6. Elementos interativos como botões e animações suaves
+7. Design totalmente responsivo
+8. Cores modernas e imagens placeholder com descrições detalhadas
+
+
+`escola-digital.html`
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escola Digital - Transformando Educação</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #10b981;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --gray: #94a3b8;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 100;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo i {
+            font-size: 28px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .cta-button {
+            background-color: var(--primary);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .cta-button:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 150px 0 80px;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+        
+        .hero p {
+            font-size: 20px;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        .secondary-button {
+            background-color: white;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .secondary-button:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        /* Features */
+        .features {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            color: var(--dark);
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .feature-icon {
+            background-color: var(--primary);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: white;
+            font-size: 24px;
+        }
+        
+        .feature-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        .feature-card p {
+            color: var(--gray);
+        }
+        
+        /* Gallery */
+        .gallery {
+            padding: 80px 0;
+            background-color: #f8fafc;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+        
+        .gallery-item {
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 100%);
+            padding: 20px;
+            color: white;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: 80px 0;
+        }
+        
+        .testimonial-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin: 0 auto;
+            max-width: 800px;
+        }
+        
+        .testimonial-text {
+            font-size: 20px;
+            font-style: italic;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .testimonial-text::before {
+            content: '"';
+            font-size: 60px;
+            position: absolute;
+            top: -20px;
+            left: -15px;
+            color: var(--gray);
+            opacity: 0.2;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        
+        .author-info h4 {
+            margin-bottom: 5px;
+        }
+        
+        .author-info p {
+            color: var(--gray);
+            font-size: 14px;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        
+        .cta-section p {
+            max-width: 600px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--primary);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: var(--gray);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            color: white;
+            background-color: rgba(255,255,255,0.1);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--primary);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: var(--gray);
+            font-size: 14px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .cta-button, .secondary-button {
+                display: block;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">
+                    <i class="fas fa-laptop-code"></i>
+                    <span>Escola Digital</span>
+                </a>
+                
+                <div class="nav-links">
+                    <a href="#">Início</a>
+                    <a href="#">Cursos</a>
+                    <a href="#">Metodologia</a>
+                    <a href="#">Professores</a>
+                    <a href="#">Depoimentos</a>
+                    <a href="#" class="cta-button">Matricule-se</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Transforme sua carreira com a Escola Digital</h1>
+            <p>O futuro da educação tecnológica está aqui. Cursos modernos com metodologia inovadora para preparar você para os desafios do mercado digital.</p>
+            
+            <div class="hero-buttons">
+                <a href="#" class="cta-button">Comece Agora</a>
+                <a href="#" class="secondary-button">Conheça nossos cursos</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Por que escolher a Escola Digital?</h2>
+                <p>Nossa abordagem única combina teoria e prática para garantir seu sucesso profissional</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <h3>Professores Experts</h3>
+                    <p>Nossos instrutores são profissionais atuantes no mercado, trazendo cases reais e conhecimentos atualizados.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>Aprendizado Prático</h3>
+                    <p>Mais de 80% do curso é hands-on, com projetos reais que vão compor seu portfólio profissional.</p>
+                </div>
+                
+                <div class="feature-card">
+                   
